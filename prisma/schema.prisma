@@ -18,7 +18,7 @@ model books {
   publishDate DateTime?
   readStatus ReadStatus @default(toRead)
   createdAt  DateTime   @default(now())
-  updatedAt  DateTime @updatedAt
+  updatedAt  DateTime   @updatedAt
   notes      notes[]
 }
 

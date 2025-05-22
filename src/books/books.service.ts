@@ -47,7 +47,7 @@ export class BooksService {
   async findOneBook(id: number) {
     return await paginate(
       this.prismaClient.books,
-      { where: { id } },
+      { where: { id }, include: { notes: true } },
       { perPage: 1 },
     );
   }

@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaClient } from 'generated/prisma';
 import { BooksService } from 'src/books/books.service';
-import { UpdateBookDto } from 'src/books/dto/update-book.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { CreateNoteDto } from './dto/create-note.dto';
 
