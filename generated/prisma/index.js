@@ -146,7 +146,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\leulg\\OneDrive\\Desktop\\Sci-Tech Project\\shelf-log-project\\generated\\prisma",
+      "value": "C:\\Users\\leulg\\OneDrive\\Desktop\\Sci-Tech Project\\New folder (2)\\shelf-log-project-backend\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -157,15 +157,18 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\leulg\\OneDrive\\Desktop\\Sci-Tech Project\\shelf-log-project\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\leulg\\OneDrive\\Desktop\\Sci-Tech Project\\New folder (2)\\shelf-log-project-backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.8.2",
@@ -183,8 +186,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel books {\n  id          Int        @id @default(autoincrement())\n  title       String\n  author      String\n  categories  String[]\n  description String?\n  publishDate DateTime?\n  readStatus  ReadStatus @default(toRead)\n  createdAt   DateTime   @default(now())\n  updatedAt   DateTime   @updatedAt\n  notes       notes[]\n}\n\nmodel notes {\n  id      Int    @unique @default(autoincrement())\n  content String\n  bookId  Int\n  books   books  @relation(fields: [bookId], references: [id], onDelete: Cascade)\n}\n\nenum ReadStatus {\n  toRead\n  reading\n  completed\n}\n",
-  "inlineSchemaHash": "ec8d704263e93bd73999cba49515c211746911b5f85a8495d37b3d09fe73c3d7",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel books {\n  id          Int        @id @default(autoincrement())\n  title       String\n  author      String\n  categories  String[]\n  description String?\n  publishDate DateTime?\n  readStatus  ReadStatus @default(toRead)\n  createdAt   DateTime   @default(now())\n  updatedAt   DateTime   @updatedAt\n  notes       notes[]\n}\n\nmodel notes {\n  id      Int    @unique @default(autoincrement())\n  content String\n  bookId  Int\n  books   books  @relation(fields: [bookId], references: [id], onDelete: Cascade)\n}\n\nenum ReadStatus {\n  toRead\n  reading\n  completed\n}\n",
+  "inlineSchemaHash": "899c75f56321943d38df5a2854d837e4fbb966c2e5cf768eb981dd78630f3f15",
   "copyEngine": true
 }
 
@@ -225,6 +228,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/prisma/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")
