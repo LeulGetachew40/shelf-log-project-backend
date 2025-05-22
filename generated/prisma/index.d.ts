@@ -2185,18 +2185,21 @@ export namespace Prisma {
   export type NotesMinAggregateOutputType = {
     id: number | null
     content: string | null
+    createdAt: Date | null
     bookId: number | null
   }
 
   export type NotesMaxAggregateOutputType = {
     id: number | null
     content: string | null
+    createdAt: Date | null
     bookId: number | null
   }
 
   export type NotesCountAggregateOutputType = {
     id: number
     content: number
+    createdAt: number
     bookId: number
     _all: number
   }
@@ -2215,18 +2218,21 @@ export namespace Prisma {
   export type NotesMinAggregateInputType = {
     id?: true
     content?: true
+    createdAt?: true
     bookId?: true
   }
 
   export type NotesMaxAggregateInputType = {
     id?: true
     content?: true
+    createdAt?: true
     bookId?: true
   }
 
   export type NotesCountAggregateInputType = {
     id?: true
     content?: true
+    createdAt?: true
     bookId?: true
     _all?: true
   }
@@ -2320,6 +2326,7 @@ export namespace Prisma {
   export type NotesGroupByOutputType = {
     id: number
     content: string
+    createdAt: Date
     bookId: number
     _count: NotesCountAggregateOutputType | null
     _avg: NotesAvgAggregateOutputType | null
@@ -2345,6 +2352,7 @@ export namespace Prisma {
   export type notesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    createdAt?: boolean
     bookId?: boolean
     books?: boolean | booksDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notes"]>
@@ -2352,6 +2360,7 @@ export namespace Prisma {
   export type notesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    createdAt?: boolean
     bookId?: boolean
     books?: boolean | booksDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notes"]>
@@ -2359,6 +2368,7 @@ export namespace Prisma {
   export type notesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     content?: boolean
+    createdAt?: boolean
     bookId?: boolean
     books?: boolean | booksDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notes"]>
@@ -2366,10 +2376,11 @@ export namespace Prisma {
   export type notesSelectScalar = {
     id?: boolean
     content?: boolean
+    createdAt?: boolean
     bookId?: boolean
   }
 
-  export type notesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "bookId", ExtArgs["result"]["notes"]>
+  export type notesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "content" | "createdAt" | "bookId", ExtArgs["result"]["notes"]>
   export type notesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     books?: boolean | booksDefaultArgs<ExtArgs>
   }
@@ -2388,6 +2399,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       content: string
+      createdAt: Date
       bookId: number
     }, ExtArgs["result"]["notes"]>
     composites: {}
@@ -2815,6 +2827,7 @@ export namespace Prisma {
   interface notesFieldRefs {
     readonly id: FieldRef<"notes", 'Int'>
     readonly content: FieldRef<"notes", 'String'>
+    readonly createdAt: FieldRef<"notes", 'DateTime'>
     readonly bookId: FieldRef<"notes", 'Int'>
   }
     
@@ -3262,6 +3275,7 @@ export namespace Prisma {
   export const NotesScalarFieldEnum: {
     id: 'id',
     content: 'content',
+    createdAt: 'createdAt',
     bookId: 'bookId'
   };
 
@@ -3453,6 +3467,7 @@ export namespace Prisma {
     NOT?: notesWhereInput | notesWhereInput[]
     id?: IntFilter<"notes"> | number
     content?: StringFilter<"notes"> | string
+    createdAt?: DateTimeFilter<"notes"> | Date | string
     bookId?: IntFilter<"notes"> | number
     books?: XOR<BooksScalarRelationFilter, booksWhereInput>
   }
@@ -3460,6 +3475,7 @@ export namespace Prisma {
   export type notesOrderByWithRelationInput = {
     id?: SortOrder
     content?: SortOrder
+    createdAt?: SortOrder
     bookId?: SortOrder
     books?: booksOrderByWithRelationInput
   }
@@ -3470,6 +3486,7 @@ export namespace Prisma {
     OR?: notesWhereInput[]
     NOT?: notesWhereInput | notesWhereInput[]
     content?: StringFilter<"notes"> | string
+    createdAt?: DateTimeFilter<"notes"> | Date | string
     bookId?: IntFilter<"notes"> | number
     books?: XOR<BooksScalarRelationFilter, booksWhereInput>
   }, "id">
@@ -3477,6 +3494,7 @@ export namespace Prisma {
   export type notesOrderByWithAggregationInput = {
     id?: SortOrder
     content?: SortOrder
+    createdAt?: SortOrder
     bookId?: SortOrder
     _count?: notesCountOrderByAggregateInput
     _avg?: notesAvgOrderByAggregateInput
@@ -3491,6 +3509,7 @@ export namespace Prisma {
     NOT?: notesScalarWhereWithAggregatesInput | notesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"notes"> | number
     content?: StringWithAggregatesFilter<"notes"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"notes"> | Date | string
     bookId?: IntWithAggregatesFilter<"notes"> | number
   }
 
@@ -3582,39 +3601,46 @@ export namespace Prisma {
   export type notesCreateInput = {
     id?: number
     content: string
+    createdAt?: Date | string
     books: booksCreateNestedOneWithoutNotesInput
   }
 
   export type notesUncheckedCreateInput = {
     id?: number
     content: string
+    createdAt?: Date | string
     bookId: number
   }
 
   export type notesUpdateInput = {
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     books?: booksUpdateOneRequiredWithoutNotesNestedInput
   }
 
   export type notesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bookId?: IntFieldUpdateOperationsInput | number
   }
 
   export type notesCreateManyInput = {
     id?: number
     content: string
+    createdAt?: Date | string
     bookId: number
   }
 
   export type notesUpdateManyMutationInput = {
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type notesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bookId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -3851,6 +3877,7 @@ export namespace Prisma {
   export type notesCountOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    createdAt?: SortOrder
     bookId?: SortOrder
   }
 
@@ -3862,12 +3889,14 @@ export namespace Prisma {
   export type notesMaxOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    createdAt?: SortOrder
     bookId?: SortOrder
   }
 
   export type notesMinOrderByAggregateInput = {
     id?: SortOrder
     content?: SortOrder
+    createdAt?: SortOrder
     bookId?: SortOrder
   }
 
@@ -4150,11 +4179,13 @@ export namespace Prisma {
   export type notesCreateWithoutBooksInput = {
     id?: number
     content: string
+    createdAt?: Date | string
   }
 
   export type notesUncheckedCreateWithoutBooksInput = {
     id?: number
     content: string
+    createdAt?: Date | string
   }
 
   export type notesCreateOrConnectWithoutBooksInput = {
@@ -4189,6 +4220,7 @@ export namespace Prisma {
     NOT?: notesScalarWhereInput | notesScalarWhereInput[]
     id?: IntFilter<"notes"> | number
     content?: StringFilter<"notes"> | string
+    createdAt?: DateTimeFilter<"notes"> | Date | string
     bookId?: IntFilter<"notes"> | number
   }
 
@@ -4257,20 +4289,24 @@ export namespace Prisma {
   export type notesCreateManyBooksInput = {
     id?: number
     content: string
+    createdAt?: Date | string
   }
 
   export type notesUpdateWithoutBooksInput = {
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type notesUncheckedUpdateWithoutBooksInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type notesUncheckedUpdateManyWithoutBooksInput = {
     id?: IntFieldUpdateOperationsInput | number
     content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

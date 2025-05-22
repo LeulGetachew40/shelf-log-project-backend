@@ -135,6 +135,7 @@ exports.Prisma.BooksScalarFieldEnum = {
 exports.Prisma.NotesScalarFieldEnum = {
   id: 'id',
   content: 'content',
+  createdAt: 'createdAt',
   bookId: 'bookId'
 };
 
