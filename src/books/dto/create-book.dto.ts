@@ -1,4 +1,11 @@
-import { IsDate, IsEnum, IsString, Length, MaxLength } from 'class-validator';
+import {
+  IsArray,
+  IsDate,
+  IsEnum,
+  IsString,
+  Length,
+  MaxLength,
+} from 'class-validator';
 import { ReadStatus } from './../../../generated/prisma/client';
 
 export class CreateBookDto {
@@ -19,6 +26,9 @@ export class CreateBookDto {
     message: 'Description cannot exceed above 2500 characters',
   })
   description?: string;
+
+  @IsArray()
+  categories: string[];
 
   @IsDate()
   publishDate?: Date;
