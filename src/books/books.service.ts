@@ -45,11 +45,16 @@ export class BooksService {
   }
 
   async findOneBook(id: number) {
-    return await paginate(
+    const data = await paginate(
       this.prismaClient.books,
       { where: { id }, include: { notes: true } },
       { perPage: 1 },
     );
+
+    if (data.data.length === 0)
+      throw new NotFoundException(`Book ${id} Not Found!`);
+    // handle error if the book is not found by the id
+    return data;
   }
 
   async updateBook(id: number, updateBookDto: UpdateBookDto) {
