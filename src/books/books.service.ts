@@ -67,6 +67,8 @@ export class BooksService {
   }
 
   async removeBook(id: number) {
+    if (!this.bookFound(id))
+      throw new NotFoundException(`Book with id #${id} was not found`);
     return await this.prismaClient.books.delete({ where: { id } });
   }
 }
